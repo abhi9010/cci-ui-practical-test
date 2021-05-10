@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Version 1.0.0.2021-05-05  -->
+
+<head>
+    <title>User Crud Operations</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <!-- Navigation Panel -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="user-tab" data-toggle="tab" href="#user_listing_tab" role="tab"
+                    aria-controls="user" aria-selected="true">User</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="scratch_card-tab" data-toggle="tab" href="#add_user_tab" role="tab"
+                    aria-controls="scratch_card" aria-selected="false">Add User</a>
+            </li>
+        </ul>
+
+        <!-- tabs -->
+        <div class="tab-content" id="myTabContent">
+
+            <!-- User Section -->
+            <div class="tab-pane fade show active" id="user_listing_tab" role="tabpanel" aria-labelledby="user-tab">
+                <div class="col-10 mt-2 offset-1">
+                    <div class="row m-2">
+                        <h5 class="col-3">Users:</h5>
+
+                        <!-- action buttons -->
+                        <div class="col-9 actions d-flex justify-content-end">
+                            <button id="set_active" class="btn btn-info ml-1  action-btns">active</button>
+                            <button id="set_inactive" class="btn btn-info ml-1 action-btns">inactive</button>
+                        </div>
+                    </div>
+
+                    <!-- Users table -->
+                    <table class="table table-hover table-bordered table-striped">
+                        <thead class="text-center">
+                            <tr>
+                                <th class="text-center"><input type="checkbox" name="" id="check_all_users"></th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Mobile</th>
+                                <th>City</th>
+                                <th>IsActive</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            <tr>
+                                <td><input type="checkbox" name="" id="" class="user_check"></td>
+                                <td class="text-left">Brandon</td>
+                                <td class="text-left">Dsouza</td>
+                                <td class="text-left">Brandon.Dsouza@creativecapsule.com</td>
+                                <td class="text-left">9823163598</td>
+                                <td class="text-left">Margao</td>
+                                <td class="text-left">True</td>
+                                <td>
+                                    <button class="btn btn-info btn-sm" data-toggle="modal"
+                                        data-target="#edit_user_modal"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="" id="" class="user_check"></td>
+
+                                <td class="text-left">Collin</td>
+                                <td class="text-left">Pereira</td>
+                                <td class="text-left">Collin.Pereira@creativecapsule.com</td>
+                                <td class="text-left">9823463598</td>
+                                <td class="text-left">Varca</td>
+                                <td class="text-left">False</td>
+                                <td>
+                                    <button class="btn btn-info btn-sm" data-toggle="modal"
+                                        data-target="#edit_user_modal"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="" id="" class="user_check"></td>
+                                <td class="text-left">Domnic</td>
+                                <td class="text-left">Fernandes</td>
+                                <td class="text-left">Domnic.Fernandes@creativecapsule.com</td>
+                                <td class="text-left">9813463542</td>
+                                <td class="text-left">Varca</td>
+                                <td class="text-left">True</td>
+                                <td>
+                                    <button class="btn btn-info btn-sm" data-toggle="modal"
+                                        data-target="#edit_user_modal"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><input type="checkbox" name="" id="" class="user_check"></td>
+                                <td class="text-left">Ivo</td>
+                                <td class="text-left">Costa</td>
+                                <td class="text-left">Ivo.Costa@creativecapsule.com</td>
+                                <td class="text-left">9824463599</td>
+                                <td class="text-left">Margao</td>
+                                <td class="text-left">True</td>
+                                <td>
+                                    <button class="btn btn-info btn-sm" data-toggle="modal"
+                                        data-target="#edit_user_modal"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <!-- Add User -->
+            <div class="tab-pane fade" id="add_user_tab" role="tabpanel" aria-labelledby="scratch_card-tab">
+                <div class="mt-5 col-6 offset-3">
+                    <h5>Add User</h5>
+                    <hr>
+                    <form>
+                        <div class="form-group row">
+                            <label for="firstName" class="col-sm-2 col-form-label">First name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="firstName" placeholder="First name">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="lastName" class="col-sm-2 col-form-label">Last name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="lastName" placeholder="Last name">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="userEmail" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="userEmail" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="userMobile" class="col-sm-2 col-form-label">Mobile</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="userMobile" placeholder="Mobile">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="userCity" class="col-sm-2 col-form-label">City</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="userCity" placeholder="City">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="userIsActive" class="col-sm-2 col-form-label">IsActive</label>
+                            <div class="col-sm-1">
+                                <input type="checkbox" class="form-control" id="userIsActive">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <button type="submit" class="btn btn-primary">Add User</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    </div>
+
+
+
+    <!-- Edit User modal -->
+
+    <div class="modal" id="edit_user_modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit User</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                            <label for="firstName" class="col-sm-3 col-form-label">First name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="firstName" placeholder="First name">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="lastName" class="col-sm-3 col-form-label">Last name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="lastName" placeholder="Last name">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="userEmail" class="col-sm-3 col-form-label">Email</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control" id="userEmail" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="userMobile" class="col-sm-3 col-form-label">Mobile</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="userMobile" placeholder="Mobile">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="userCity" class="col-sm-3 col-form-label">City</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="userCity" placeholder="City">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="userIsActive" class="col-sm-3 col-form-label">IsActive</label>
+                            <div class="col-sm-1">
+                                <input type="checkbox" class="form-control" id="userIsActive">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <button type="submit" class="btn btn-primary">Edit User</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- bootstrap cdns -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"></script>
+
+    <script>
+        var userSelectCount = 0
+        $(document).ready(() => {
+            $('.action-btns').hide()
+        })
+
+        //select all users
+        $('#check_all_users').click(() => {
+            if ($('#check_all_users').is(":checked")) {
+                $('.user_check').prop("checked", true)
+                $('.action-btns').show()
+            }
+            else {
+                $('.user_check').prop("checked", false)
+                $('.action-btns').hide()
+            }
+        })
+
+        //select single user
+        $('.user_check').click(() => {
+            if ($('.user_check').is(":checked")) {
+                userSelectCount += 1
+                if (userSelectCount > 1)
+                    $('.action-btns').show()
+            }
+            else {
+                userSelectCount -= 1
+                if (userSelectCount < 2)
+                    $('.action-btns').hide()
+            }
+        })
+
+        //when generate cards button clicked
+        $('#generate_btn').click(() => {
+            $('#card_alert').show()
+        })
+    </script>
+</body>
+
+</html>
